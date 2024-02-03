@@ -13,13 +13,13 @@ void main() async {
       options: const FirebaseOptions(
         // storageBucket: "/hotels/ERJJj7osNYV1LcIkVdw0",
         // databaseURL: "/hotels/ERJJj7osNYV1LcIkVdw0",
-          apiKey: "AIzaSyDDb9A4LeahPx_9nsLCv0a1Pxy06yTOEZ0",
-          appId: "1:39800361335:android:bc637678ecc76f48479172",
-          messagingSenderId: "39800361335",
-          projectId: "clonehotel-52752")
+          apiKey: "",
+          appId: "",
+          messagingSenderId: "",
+          projectId: "")
           
           );
-  
+
           
   runApp(const MainApp());
 }
