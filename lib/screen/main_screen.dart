@@ -1,4 +1,6 @@
-import 'package:clone_hotels/componets/main_screen_stays.dart';
+import 'package:clone_hotels/componets/search_screen_component.dart';
+import 'package:clone_hotels/screen/admin_panel.dart';
+import 'package:clone_hotels/widgets/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 
@@ -10,9 +12,17 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int _selectIndex = 0;
+  void _onIndexTapped(int index) {
+    setState(() {
+      _selectIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => AdminPanel()));}, child: Text("Admin"),),
       appBar: AppBar(
         title: Text(
           "Sochi.com",
@@ -20,16 +30,31 @@ class _MainScreenState extends State<MainScreen> {
           style: TextStyle(fontSize: 30),
         ).center(),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: true,
+        backgroundColor: Colors.white,
+        unselectedIconTheme: IconThemeData(color: Colors.black, size: 14),
+        selectedItemColor: Colors.red,
+        selectedLabelStyle: TextStyle(color: Colors.black),
+        unselectedLabelStyle: TextStyle(color: Colors.black),
+        iconSize: 18,
+        selectedFontSize: 14,
+
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home",),
+          BottomNavigationBarItem(icon: Icon(Icons.reviews), label: "Revards"),
+          BottomNavigationBarItem(icon: Icon(Icons.loop), label: "Search"),
+          BottomNavigationBarItem(icon: Icon(Icons.cases), label: "Trips"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_box), label: "Account"),
+        ],
+        currentIndex: _selectIndex,
+        onTap: _onIndexTapped,
+      ),
       body: Container(
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text("Hi, traveler!", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),).paddingLeft(20),
-            StaysSearchWidget(),
-          ],
-        ),
+
+        child: listBottomBarScreen[_selectIndex],
       ),
     );
   }
