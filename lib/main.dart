@@ -5,18 +5,21 @@ import 'package:clone_hotels/screen/register_main_screen.dart';
 import 'package:clone_hotels/screen/travelers_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(
 
-      options: const FirebaseOptions(
+      options: FirebaseOptions(
         // storageBucket: "/hotels/ERJJj7osNYV1LcIkVdw0",
         // databaseURL: "/hotels/ERJJj7osNYV1LcIkVdw0",
-          apiKey: "",
-          appId: "",
-          messagingSenderId: "",
-          projectId: "")
+          apiKey: dotenv.env["FIREBASE_API_KEY"] ?? "",
+          appId: dotenv.env["FIREBASE_APP_ID"] ?? "",
+          messagingSenderId: dotenv.env["FIREBASE_MESSAGING_SENDER_ID"] ?? "",
+          projectId: dotenv.env["FIREBASE_PROJECT_ID"] ?? "")
           
           );
 
