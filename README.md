@@ -1,3 +1,4 @@
 # clone_hotels
 
-Clone popular app to find Hotels
+Клон популярного приложения Hotel.com. (В процессе)
+Написан на Dart с помощью Flutter. База данных с помощью Firebase, аутентификация в процессе. Использование Bloc для разделения бизнес логики.
