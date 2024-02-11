@@ -1,4 +1,8 @@
-# clone_hotels
+Клон мобильного приложения Hotels.com. В работе.
 
-Клон популярного приложения Hotel.com. (В процессе)
-Написан на Dart с помощью Flutter. База данных с помощью Firebase, аутентификация в процессе. Использование Bloc для разделения бизнес логики.
+<p align="center">
+  <img src="lib/assets/screenshot/one.png" alt="Скриншот приложения 1" width="200"/>
+  <img src="lib/assets/screenshot/two.png" alt="Скриншот приложения 2" width="200"/>
+  <img src="lib/assets/screenshot/three.png" alt="Скриншот приложения 3" width="200"/>
+  <img src="lib/assets/screenshot/zero.png" alt="Скриншот приложения 4" width="200"/>
+</p>

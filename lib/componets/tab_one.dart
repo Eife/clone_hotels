@@ -11,7 +11,7 @@ class TabOne extends StatefulWidget {
 }
 
 class _TabOneState extends State<TabOne> {
-  late TextEditingController _textEditingController;
+
   @override
   void initState() {
     super.initState();
